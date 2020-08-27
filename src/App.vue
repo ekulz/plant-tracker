@@ -1,9 +1,10 @@
 <template>
   <div id="app">
     <main>
+      <the-header></the-header>
       <div class="container mx-auto flex flex-col items-center">
         <div
-          id="plant"
+          id="plant-container"
           class="bg-gray-800 text-gray-500 w-3/5 rounded-lg mt-4"
           v-for="plant in plants"
           v-bind:key="plant.id"
@@ -87,6 +88,8 @@
 </template>
 
 <script>
+import TheHeader from "./components/TheHeader.vue";
+
 export default {
   name: "App",
   data: function () {
@@ -130,6 +133,9 @@ export default {
     toggleEdit() {
       this.newPlant.editing = !this.newPlant.editing;
     },
+  },
+  components: {
+    TheHeader,
   },
 };
 </script>
