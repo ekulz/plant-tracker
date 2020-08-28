@@ -10,6 +10,3 @@ export default {
   name: "the-header",
 };
 </script>
-
-<style>
-</style>
