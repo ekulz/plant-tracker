@@ -1,18 +1,14 @@
 <template>
   <div class="container container-content">
-    <div
-      class="bg-gray-800 text-gray-500 w-3/5 rounded-lg mt-4"
-      v-for="plant in plants"
-      v-bind:key="plant.id"
-    >
-      <div class="text-4xl text-gray-400 italic m-4">{{ plant.name }}</div>
-      <div class="text-xl m-4">{{ plant.species }}</div>
-      <div class="text-base text-gray-400 m-4">
+    <div class="card w-3/5" v-for="plant in plants" v-bind:key="plant.id">
+      <div class="h1">{{ plant.name }}</div>
+      <div class="h2">{{ plant.species }}</div>
+      <div class="p">
         <ul class="list-disc list-inside">
           <li v-for="log in plant.logs" v-bind:key="log">{{ log }}</li>
         </ul>
       </div>
-      <div class="flex justify-left m-4">
+      <div class="flex m-4">
         <input
           type="text"
           class="input w-full"
@@ -40,3 +36,24 @@ export default {
   },
 };
 </script>
+
+<style>
+.h1 {
+  @apply text-4xl;
+  @apply text-gray-400;
+  @apply italic;
+  @apply m-4;
+}
+
+.h2 {
+  @apply text-xl;
+  @apply text-gray-500;
+  @apply m-4;
+}
+
+.p {
+  @apply text-base;
+  @apply text-gray-400;
+  @apply m-4;
+}
+</style>

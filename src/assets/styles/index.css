@@ -49,6 +49,11 @@
   @apply flex;
   @apply flex-col;
   @apply items-center;
+}
+
+.card {
+  @apply bg-gray-800;
+  @apply rounded-lg;
   @apply mb-4;
 }
 

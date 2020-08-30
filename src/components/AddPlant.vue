@@ -1,18 +1,12 @@
 <template>
   <div class="container container-content">
-    <div class="bg-gray-800 text-gray-500 w-3/5 rounded-lg" v-if="newPlant.editing">
-      <div class="m-4 flex flex-row items-center">
+    <div class="card w-3/5" v-if="newPlant.editing">
+      <div class="flex flex-row items-center m-4">
         <div class="w-24">
           <label for="name-input" class="block text-gray-400 italic">Name</label>
         </div>
         <div class="w-full">
-          <input
-            type="text"
-            id="name-input"
-            class="input"
-            placeholder="e.g. Lily"
-            v-model="newPlant.name"
-          />
+          <input type="text" class="input" placeholder="e.g. Lily" v-model="newPlant.name" />
         </div>
       </div>
       <div class="m-4 flex flex-row items-center">
@@ -29,7 +23,7 @@
       </div>
     </div>
     <div class="w-3/5">
-      <button class="btn w-32" v-if="!newPlant.editing" v-on:click="toggleEdit()">Add plant</button>
+      <button class="btn" v-if="!newPlant.editing" v-on:click="toggleEdit()">Add plant</button>
     </div>
   </div>
 </template>
