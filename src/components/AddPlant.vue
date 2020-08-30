@@ -30,18 +30,17 @@
             />
           </div>
         </div>
-        <div id="new-plant-edit-save" class="m-4">
+        <div id="new-plant-edit-btns" class="m-4">
           <button id="new-plant-edit-save-btn" class="btn" v-on:click="savePlant()">Save</button>
+          <button id="new-plant-edit-cancel-btn" class="btn ml-2" v-on:click="toggleEdit()">Cancel</button>
         </div>
       </div>
-      <div id="new-plant-add">
-        <button
-          id="new-plant-add-btn"
-          class="btn"
-          v-if="!newPlant.editing"
-          v-on:click="toggleEdit()"
-        >Add plant</button>
-      </div>
+      <button
+        id="new-plant-add-btn"
+        class="btn w-32"
+        v-if="!newPlant.editing"
+        v-on:click="toggleEdit()"
+      >Add plant</button>
     </div>
   </div>
 </template>
@@ -61,11 +60,11 @@ export default {
   methods: {
     toggleEdit() {
       this.newPlant.editing = !this.newPlant.editing;
+      this.newPlant.name = "";
+      this.newPlant.species = "";
     },
     savePlant() {
       this.$emit("update:plants", this.newPlant);
-      this.newPlant.name = "";
-      this.newPlant.species = "";
       this.toggleEdit();
     },
   },
