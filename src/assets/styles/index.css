@@ -2,6 +2,8 @@
 
 @tailwind components;
 
+/* Buttons */
+
 .btn {
   @apply bg-gray-700;
   @apply text-white;
@@ -20,6 +22,8 @@
   @apply shadow-outline;
 }
 
+/* Inputs */
+
 .input {
   @apply bg-gray-700;
   @apply border;
@@ -36,6 +40,16 @@
 .input:focus {
   @apply outline-none;
   @apply shadow-outline;
+}
+
+/* Page Layout */
+
+.container-content {
+  @apply mx-auto;
+  @apply flex;
+  @apply flex-col;
+  @apply items-center;
+  @apply mb-4;
 }
 
 @tailwind utilities;

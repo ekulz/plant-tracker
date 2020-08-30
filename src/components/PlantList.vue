@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto flex flex-col items-center">
+  <div class="container container-content">
     <div
       id="plant-container"
       class="bg-gray-800 text-gray-500 w-3/5 rounded-lg mt-4"
@@ -17,11 +17,11 @@
         <input
           type="text"
           id="new-log"
-          class="input"
+          class="input w-full"
           placeholder="e.g. Watered 01/12/20..."
           v-model="plant.logEntry"
         />
-        <button id="save-log" class="btn ml-2" v-on:click="saveLog(plant.id)">Save</button>
+        <button id="save-log" class="btn ml-2 w-20" v-on:click="saveLog(plant.id)">Save</button>
       </div>
     </div>
   </div>
