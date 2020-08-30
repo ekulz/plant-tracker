@@ -17,15 +17,11 @@
         <input
           type="text"
           id="new-log"
-          class="bg-gray-700 focus:outline-none focus:shadow-outline border border-gray-700 rounded-lg w-1/2 py-1 px-2 appearance-none leading-normal text-gray-300"
+          class="input"
           placeholder="e.g. Watered 01/12/20..."
           v-model="plant.logEntry"
         />
-        <button
-          id="save-log"
-          class="bg-gray-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-lg ml-2"
-          v-on:click="saveLog(plant.id)"
-        >Save</button>
+        <button id="save-log" class="btn ml-2" v-on:click="saveLog(plant.id)">Save</button>
       </div>
     </div>
   </div>

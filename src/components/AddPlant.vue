@@ -10,7 +10,7 @@
             <input
               type="text"
               id="name-input"
-              class="bg-gray-700 focus:outline-none focus:shadow-outline border border-gray-700 rounded-lg py-1 px-2 appearance-none leading-normal text-gray-300 w-full"
+              class="input"
               placeholder="e.g. Lily"
               v-model="newPlant.name"
             />
@@ -24,24 +24,20 @@
             <input
               type="text"
               id="species-input"
-              class="bg-gray-700 focus:outline-none focus:shadow-outline border border-gray-700 rounded-lg py-1 px-2 appearance-none leading-normal text-gray-300 w-full"
+              class="input"
               placeholder="e.g. Peace Lily"
               v-model="newPlant.species"
             />
           </div>
         </div>
         <div id="new-plant-edit-save" class="m-4">
-          <button
-            id="new-plant-edit-save-btn"
-            class="bg-gray-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-lg"
-            v-on:click="savePlant()"
-          >Save</button>
+          <button id="new-plant-edit-save-btn" class="btn" v-on:click="savePlant()">Save</button>
         </div>
       </div>
       <div id="new-plant-add">
         <button
           id="new-plant-add-btn"
-          class="bg-gray-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-lg"
+          class="btn"
           v-if="!newPlant.editing"
           v-on:click="toggleEdit()"
         >Add plant</button>

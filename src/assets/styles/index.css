@@ -1,3 +1,41 @@
 @tailwind base;
+
 @tailwind components;
+
+.btn {
+  @apply bg-gray-700;
+  @apply text-white;
+  @apply font-bold;
+  @apply py-2;
+  @apply px-4;
+  @apply rounded-lg;
+}
+
+.btn:hover {
+  @apply bg-blue-800;
+}
+
+.btn:focus {
+  @apply outline-none;
+  @apply shadow-outline;
+}
+
+.input {
+  @apply bg-gray-700;
+  @apply border;
+  @apply border-gray-700;
+  @apply rounded-lg;
+  @apply py-1;
+  @apply px-2;
+  @apply appearance-none;
+  @apply leading-normal;
+  @apply text-gray-300;
+  @apply w-full;
+}
+
+.input:focus {
+  @apply outline-none;
+  @apply shadow-outline;
+}
+
 @tailwind utilities;
