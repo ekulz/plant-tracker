@@ -1,22 +1,18 @@
 <template>
   <div class="container container-content">
     <div class="card w-3/5" v-if="newPlant.editing">
-      <div class="flex flex-row items-center m-4">
-        <div class="w-24">
-          <label for="name-input" class="block text-gray-400 italic">Name</label>
-        </div>
-        <div class="w-full">
-          <input type="text" class="input" placeholder="e.g. Lily" v-model="newPlant.name" />
-        </div>
-      </div>
-      <div class="m-4 flex flex-row items-center">
-        <div class="w-24">
-          <label for="species-input" class="block text-gray-400 italic">Species</label>
-        </div>
-        <div class="w-full">
-          <input type="text" class="input" placeholder="e.g. Peace Lily" v-model="newPlant.species" />
-        </div>
-      </div>
+      <add-plant-input
+        input-label="Name"
+        input-placeholder="e.g. Lily"
+        input-id="name-input"
+        v-model="newPlant.name"
+      ></add-plant-input>
+      <add-plant-input
+        input-label="Species"
+        input-placeholder="e.g. Peace Lily"
+        input-id="species-input"
+        v-model="newPlant.species"
+      ></add-plant-input>
       <div class="m-4">
         <button class="btn" v-on:click="savePlant()">Save</button>
         <button class="btn ml-2" v-on:click="toggleEdit()">Cancel</button>
@@ -29,6 +25,8 @@
 </template>
 
 <script>
+import AddPlantInput from "./AddPlantInput.vue";
+
 export default {
   name: "add-plant",
   data: function () {
@@ -50,6 +48,9 @@ export default {
       this.$emit("update:plants", this.newPlant);
       this.toggleEdit();
     },
+  },
+  components: {
+    AddPlantInput,
   },
 };
 </script>
