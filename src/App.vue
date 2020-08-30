@@ -1,7 +1,7 @@
 <template>
   <div id="app">
+    <the-header></the-header>
     <main>
-      <the-header></the-header>
       <plant-list v-bind:plants="plants"></plant-list>
       <add-plant v-on:update:plants="savePlant($event)"></add-plant>
     </main>
