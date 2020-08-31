@@ -5,11 +5,7 @@
 /* Buttons */
 
 .btn {
-  @apply bg-gray-700;
-  @apply text-white;
   @apply font-bold;
-  @apply py-2;
-  @apply px-4;
   @apply rounded-lg;
 }
 
@@ -20,6 +16,20 @@
 .btn:focus {
   @apply outline-none;
   @apply shadow-outline;
+}
+
+.btn-primary {
+  @apply bg-blue-900;
+  @apply text-gray-300;
+  @apply py-2;
+  @apply px-4;
+}
+
+.btn-secondary {
+  @apply bg-gray-700;
+  @apply text-gray-400;
+  @apply py-1;
+  @apply px-2;
 }
 
 /* Inputs */

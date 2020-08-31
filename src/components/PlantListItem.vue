@@ -6,32 +6,28 @@
       <ul class="list-disc list-inside">
         <li v-for="log in plant.logs" v-bind:key="log">{{ log }}</li>
       </ul>
-    </div>
-    <div class="flex m-4">
-      <input
-        type="text"
-        class="input w-full"
-        placeholder="e.g. Watered 01/12/20..."
-        v-model="plant.logEntry"
-      />
-      <button class="btn ml-2" v-on:click="saveLog()">Save</button>
+      <plant-list-item-log-input
+        v-on:update:log="saveLog($event)"
+      ></plant-list-item-log-input>
     </div>
   </div>
 </template>
 
 <script>
+import PlantListItemLogInput from "./PlantListItemLogInput.vue";
+
 export default {
   name: "plant-list-item",
   props: {
     plant: Object,
   },
   methods: {
-    saveLog() {
-      if (this.plant.logEntry) {
-        this.plant.logs.push(this.plant.logEntry);
-        this.plant.logEntry = "";
-      }
+    saveLog(log) {
+      this.plant.logs.push(log);
     },
+  },
+  components: {
+    PlantListItemLogInput,
   },
 };
 </script>

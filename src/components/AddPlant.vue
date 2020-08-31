@@ -14,12 +14,20 @@
         v-model="newPlant.species"
       ></add-plant-input>
       <div class="m-4">
-        <button class="btn" v-on:click="savePlant()">Save</button>
-        <button class="btn ml-2" v-on:click="toggleEdit()">Cancel</button>
+        <button class="btn btn-primary" v-on:click="savePlant()">Save</button>
+        <button class="btn btn-primary ml-2" v-on:click="toggleEdit()">
+          Cancel
+        </button>
       </div>
     </div>
     <div class="w-3/5">
-      <button class="btn" v-if="!newPlant.editing" v-on:click="toggleEdit()">Add plant</button>
+      <button
+        class="btn btn-primary"
+        v-if="!newPlant.editing"
+        v-on:click="toggleEdit()"
+      >
+        Add plant
+      </button>
     </div>
   </div>
 </template>
@@ -29,7 +37,7 @@ import AddPlantInput from "./AddPlantInput.vue";
 
 export default {
   name: "add-plant",
-  data: function () {
+  data: function() {
     return {
       newPlant: {
         editing: false,
