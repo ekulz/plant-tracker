@@ -9,6 +9,7 @@
           placeholder="e.g. Watered 01/12/20.."
           v-if="this.isEditing"
           v-model="data"
+          ref="logInput"
           required
         />
       </div>
@@ -36,12 +37,14 @@ export default {
   methods: {
     toggleEdit() {
       this.isEditing = !this.isEditing;
-      this.data = "";
+      if (this.data) this.data = "";
+      if (this.isEditing) this.$nextTick(() => this.$refs.logInput.focus());
     },
     updateLog() {
       if (this.data) {
         this.$emit("update:log", this.data);
         this.data = "";
+        this.$refs.logInput.focus();
       }
     },
   },
