@@ -4,11 +4,9 @@
     <div class="h2">{{ plant.species }}</div>
     <div class="list">
       <ul class="list-disc list-inside">
-        <li v-for="log in plant.logs" v-bind:key="log">{{ log }}</li>
+        <li v-for="(log, index) in plant.logs" v-bind:key="index + log">{{ log }}</li>
       </ul>
-      <plant-list-item-log-input
-        v-on:update:log="saveLog($event)"
-      ></plant-list-item-log-input>
+      <plant-list-item-log-input v-on:update:log="saveLog($event)"></plant-list-item-log-input>
     </div>
   </div>
 </template>
