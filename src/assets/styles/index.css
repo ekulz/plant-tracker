@@ -65,6 +65,7 @@
   @apply bg-gray-800;
   @apply rounded-lg;
   @apply mb-4;
+  @apply shadow-xl;
 }
 
 @tailwind utilities;

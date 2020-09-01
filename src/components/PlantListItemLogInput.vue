@@ -1,44 +1,33 @@
 <template>
   <div class="ml-3 mt-2">
-    <button
-      class="btn btn-secondary"
-      v-if="!this.isEditing"
-      v-on:click="toggleEdit()"
-    >
-      Add item
-    </button>
-    <div class="w-full">
-      <input
-        type="text"
-        class="input"
-        placeholder="e.g. Watered 01/12/20.."
-        v-if="this.isEditing"
-        v-model="data"
-      />
-    </div>
-    <div class="mt-2">
-      <button
-        class="btn btn-secondary"
-        v-if="this.isEditing"
-        v-on:click="updateLog()"
-      >
-        Add
-      </button>
-      <button
-        class="btn btn-secondary ml-2"
-        v-if="this.isEditing"
-        v-on:click="toggleEdit()"
-      >
-        Cancel
-      </button>
-    </div>
+    <button class="btn btn-secondary" v-if="!this.isEditing" v-on:click="toggleEdit()">Add item</button>
+    <form v-on:submit.prevent="updateLog()">
+      <div class="w-full">
+        <input
+          type="text"
+          class="input"
+          placeholder="e.g. Watered 01/12/20.."
+          v-if="this.isEditing"
+          v-model="data"
+          required
+        />
+      </div>
+      <div class="mt-2">
+        <button class="btn btn-secondary" type="submit" v-if="this.isEditing">Add</button>
+        <button
+          class="btn btn-secondary ml-2"
+          v-if="this.isEditing"
+          v-on:click="toggleEdit()"
+        >Cancel</button>
+      </div>
+    </form>
   </div>
 </template>
 
 <script>
 export default {
   name: "plant-list-item-log-input",
-  data: function() {
+  data: function () {
     return {
       isEditing: false,
       data: "",
@@ -47,6 +36,7 @@ export default {
   methods: {
     toggleEdit() {
       this.isEditing = !this.isEditing;
+      this.data = "";
     },
     updateLog() {
       if (this.data) {

@@ -11,6 +11,7 @@
         :placeholder="inputPlaceholder"
         v-bind:value="value"
         v-on:input="$emit('input', $event.target.value)"
+        required
       />
     </div>
   </div>

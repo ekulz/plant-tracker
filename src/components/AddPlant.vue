@@ -1,33 +1,27 @@
 <template>
   <div class="container container-content">
     <div class="card w-3/5" v-if="newPlant.editing">
-      <add-plant-input
-        input-label="Name"
-        input-placeholder="e.g. Lily"
-        input-id="name-input"
-        v-model="newPlant.name"
-      ></add-plant-input>
-      <add-plant-input
-        input-label="Species"
-        input-placeholder="e.g. Peace Lily"
-        input-id="species-input"
-        v-model="newPlant.species"
-      ></add-plant-input>
-      <div class="m-4">
-        <button class="btn btn-primary" v-on:click="savePlant()">Save</button>
-        <button class="btn btn-primary ml-2" v-on:click="toggleEdit()">
-          Cancel
-        </button>
-      </div>
+      <form v-on:submit.prevent="savePlant()">
+        <add-plant-input
+          input-label="Name"
+          input-placeholder="e.g. Lily"
+          input-id="name-input"
+          v-model="newPlant.name"
+        ></add-plant-input>
+        <add-plant-input
+          input-label="Species"
+          input-placeholder="e.g. Peace Lily"
+          input-id="species-input"
+          v-model="newPlant.species"
+        ></add-plant-input>
+        <div class="m-4">
+          <button class="btn btn-primary" type="submit">Save</button>
+          <button class="btn btn-primary ml-2" v-on:click="toggleEdit()">Cancel</button>
+        </div>
+      </form>
     </div>
     <div class="w-3/5">
-      <button
-        class="btn btn-primary"
-        v-if="!newPlant.editing"
-        v-on:click="toggleEdit()"
-      >
-        Add plant
-      </button>
+      <button class="btn btn-primary" v-if="!newPlant.editing" v-on:click="toggleEdit()">Add plant</button>
     </div>
   </div>
 </template>
@@ -37,7 +31,7 @@ import AddPlantInput from "./AddPlantInput.vue";
 
 export default {
   name: "add-plant",
-  data: function() {
+  data: function () {
     return {
       newPlant: {
         editing: false,
