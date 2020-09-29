@@ -1,8 +1,5 @@
 <template>
-  <h1
-    id="header"
-    class="text-4xl text-gray-200 text-center bg-gray-900 w-full p-4 mb-2 border-b-solid border-b-2 border-gray-800 mb-6 shadow-2xl"
-  >Plant Tracker</h1>
+  <h1 class="header border-b-solid">Plant Tracker</h1>
 </template>
 
 <script>
@@ -10,3 +7,18 @@ export default {
   name: "the-header",
 };
 </script>
+
+<style>
+.header {
+  @apply text-4xl;
+  @apply text-gray-200;
+  @apply text-center;
+  @apply bg-gray-900;
+  @apply w-full;
+  @apply p-4;
+  @apply mb-8;
+  @apply border-b-2;
+  @apply border-gray-800;
+  @apply shadow-2xl;
+}
+</style>

@@ -2,71 +2,79 @@
 
 @tailwind components;
 
-/* Buttons */
-
-.btn {
-  @apply font-bold;
-  @apply rounded-lg;
-}
-
-.btn:hover {
-  @apply bg-blue-800;
-}
-
-.btn:focus {
-  @apply outline-none;
-  @apply shadow-outline;
-}
-
-.btn-primary {
-  @apply bg-blue-900;
-  @apply text-gray-300;
-  @apply py-2;
-  @apply px-4;
-  @apply shadow-lg;
-}
-
-.btn-secondary {
-  @apply bg-gray-700;
-  @apply text-gray-400;
-  @apply py-1;
-  @apply px-2;
-}
-
-/* Inputs */
-
-.input {
-  @apply bg-gray-700;
-  @apply border;
-  @apply border-gray-700;
-  @apply rounded-lg;
-  @apply py-1;
-  @apply px-2;
-  @apply appearance-none;
-  @apply leading-normal;
-  @apply text-gray-300;
-  @apply w-full;
-}
-
-.input:focus {
-  @apply outline-none;
-  @apply shadow-outline;
-}
-
-/* Page Layout */
-
-.container-content {
-  @apply mx-auto;
-  @apply flex;
-  @apply flex-col;
-  @apply items-center;
-}
-
-.card {
-  @apply bg-gray-800;
-  @apply rounded-lg;
-  @apply mb-4;
-  @apply shadow-lg;
-}
-
 @tailwind utilities;
+
+@layer components {
+  /* Buttons */
+
+  .btn {
+    @apply font-bold;
+    @apply rounded-lg;
+  }
+
+  .btn:hover {
+    @apply bg-blue-800;
+  }
+
+  .btn:focus {
+    @apply outline-none;
+    @apply shadow-outline;
+  }
+
+  .btn-primary {
+    @apply bg-blue-900;
+    @apply text-gray-300;
+    @apply py-2;
+    @apply px-4;
+    @apply shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-700;
+    @apply text-gray-400;
+    @apply py-1;
+    @apply px-2;
+  }
+
+  /* Inputs */
+
+  .input {
+    @apply bg-gray-700;
+    @apply border;
+    @apply border-gray-700;
+    @apply rounded-lg;
+    @apply py-1;
+    @apply px-2;
+    @apply appearance-none;
+    @apply leading-normal;
+    @apply text-gray-300;
+    @apply w-full;
+  }
+
+  .input:focus {
+    @apply outline-none;
+    @apply shadow-outline;
+  }
+
+  /* Page Layout */
+
+  .container-content {
+    @apply mx-auto;
+    @apply flex;
+    @apply flex-wrap;
+    @apply flex-row;
+    @apply items-center;
+    @apply pl-8;
+    @apply pr-8;
+  }
+
+  .card {
+    @apply bg-gray-800;
+    @apply rounded-lg;
+    @apply shadow-lg;
+    @apply h-84;
+    @apply w-72;
+    @apply m-2;
+    @apply overflow-auto;
+  }
+}

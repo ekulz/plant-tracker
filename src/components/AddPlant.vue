@@ -1,6 +1,6 @@
 <template>
   <div class="container container-content">
-    <div class="card w-3/5" v-if="newPlant.editing">
+    <div class="card" v-if="newPlant.editing">
       <form v-on:submit.prevent="savePlant()">
         <add-plant-input
           input-label="Name"
@@ -21,7 +21,11 @@
       </form>
     </div>
     <div class="w-3/5">
-      <button class="btn btn-primary" v-if="!newPlant.editing" v-on:click="toggleEdit()">Add plant</button>
+      <button
+        class="btn btn-primary m-2"
+        v-if="!newPlant.editing"
+        v-on:click="toggleEdit()"
+      >Add plant</button>
     </div>
   </div>
 </template>

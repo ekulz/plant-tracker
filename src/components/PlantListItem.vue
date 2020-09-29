@@ -1,5 +1,5 @@
 <template>
-  <div class="card w-3/5">
+  <div class="card">
     <div class="h1">{{ plant.name }}</div>
     <div class="h2">{{ plant.species }}</div>
     <div class="list">

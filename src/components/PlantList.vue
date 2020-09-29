@@ -1,10 +1,6 @@
 <template>
   <div class="container container-content">
-    <plant-list-item
-      v-for="plant in plants"
-      v-bind:plant="plant"
-      v-bind:key="plant.id"
-    ></plant-list-item>
+    <plant-list-item v-for="plant in plants" v-bind:plant="plant" v-bind:key="plant.id"></plant-list-item>
   </div>
 </template>
 
