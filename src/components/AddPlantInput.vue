@@ -6,9 +6,10 @@
     <div class="w-full">
       <input
         :id="inputId"
+        :placeholder="inputPlaceholder"
+        :ref="inputRef"
         type="text"
         class="input"
-        :placeholder="inputPlaceholder"
         v-bind:value="value"
         v-on:input="$emit('input', $event.target.value)"
         required
@@ -20,6 +21,6 @@
 <script>
 export default {
   name: "add-plant-input",
-  props: ["value", "input-label", "input-placeholder", "input-id"],
+  props: ["value", "input-label", "input-placeholder", "input-id", "input-ref"],
 };
 </script>

@@ -6,12 +6,15 @@
           input-label="Name"
           input-placeholder="e.g. Lily"
           input-id="name-input"
+          input-ref="nameInput"
+          ref="nameInputWrapper"
           v-model="newPlant.name"
         ></add-plant-input>
         <add-plant-input
           input-label="Species"
           input-placeholder="e.g. Peace Lily"
           input-id="species-input"
+          input-ref="speciesInput"
           v-model="newPlant.species"
         ></add-plant-input>
         <div class="m-4">
@@ -49,6 +52,10 @@ export default {
       this.newPlant.editing = !this.newPlant.editing;
       this.newPlant.name = "";
       this.newPlant.species = "";
+      if (this.newPlant.editing)
+        this.$nextTick(() =>
+          this.$refs.nameInputWrapper.$refs.nameInput.focus()
+        );
     },
     savePlant() {
       this.$emit("update:plants", this.newPlant);
