@@ -1,5 +1,5 @@
 <template>
-  <div class="container container-content">
+  <div>
     <div class="card" v-if="newPlant.editing">
       <form v-on:submit.prevent="savePlant()">
         <add-plant-input
@@ -20,7 +20,7 @@
         </div>
       </form>
     </div>
-    <div class="w-3/5">
+    <div>
       <button
         class="btn btn-primary m-2"
         v-if="!newPlant.editing"

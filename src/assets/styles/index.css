@@ -63,7 +63,7 @@
     @apply flex;
     @apply flex-wrap;
     @apply flex-row;
-    @apply items-center;
+    @apply items-start;
     @apply pl-8;
     @apply pr-8;
   }
