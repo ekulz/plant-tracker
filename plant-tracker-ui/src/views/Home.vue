@@ -2,7 +2,7 @@
   <div class="home">
     <the-header/>
     <main>
-        <div class="container container-content" v-if="!$auth.loading">
+      <div class="container container-content" v-if="!$auth.loading">
         <button class="btn btn-primary m-2" v-if="!$auth.isAuthenticated" @click="login">Log in</button>
         <button class="btn btn-primary m-2" v-if="$auth.isAuthenticated" @click="logout">Log out</button>
       </div>
