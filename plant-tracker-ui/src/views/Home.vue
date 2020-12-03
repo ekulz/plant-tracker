@@ -2,10 +2,6 @@
   <div class="home">
     <the-header/>
     <main>
-      <div class="container-content" v-if="!$auth.loading">
-        <button class="btn btn-primary m-2" v-if="!$auth.isAuthenticated" @click="login">Log in</button>
-        <button class="btn btn-primary m-2" v-if="$auth.isAuthenticated" @click="logout">Log out</button>
-      </div>
       <plant-list/>
     </main>
   </div>
@@ -20,16 +16,6 @@ export default {
   components: {
     TheHeader,
     PlantList,
-  },
-  methods: {
-    login() {
-      this.$auth.loginWithRedirect();
-    },
-    logout() {
-      this.$auth.logout({
-        returnTo: window.location.origin
-      });
-    }
   }
 }
 </script>
