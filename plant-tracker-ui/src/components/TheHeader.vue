@@ -3,7 +3,10 @@
     <h1 class="title">Plant Tracker</h1>
     <div v-if="!$auth.loading">
       <button class="btn btn-primary absolute right-6 top-6" v-if="!$auth.isAuthenticated" @click="login">Sign in</button>
-      <button class="btn btn-primary absolute right-6 top-6" v-if="$auth.isAuthenticated" @click="logout">Sign out</button>
+      <div class="absolute right-6 top-6 flex flex-row space-x-4 items-center" v-if="$auth.isAuthenticated">
+        <p class="text-gray-400 italic">Welcome, {{ $auth.user.name }}</p>
+        <button class="btn btn-primary" @click="logout">Sign out</button>
+      </div>
     </div>
   </div>
 </template>
