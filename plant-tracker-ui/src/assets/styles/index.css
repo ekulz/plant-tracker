@@ -1,7 +1,5 @@
 @tailwind base;
-
 @tailwind components;
-
 @tailwind utilities;
 
 @layer components {
@@ -13,16 +11,16 @@
   }
 
   .btn:hover {
-    @apply bg-blue-800;
+    @apply bg-blueGray-500;
   }
 
   .btn:focus {
     @apply outline-none;
-    @apply shadow-outline;
+    @apply ring;
   }
 
   .btn-primary {
-    @apply bg-blue-900;
+    @apply bg-blueGray-700;
     @apply text-gray-300;
     @apply py-2;
     @apply px-4;
@@ -30,8 +28,8 @@
   }
 
   .btn-secondary {
-    @apply bg-gray-700;
-    @apply text-gray-400;
+    @apply bg-blueGray-600;
+    @apply text-gray-300;
     @apply py-1;
     @apply px-2;
   }
@@ -53,18 +51,20 @@
 
   .input:focus {
     @apply outline-none;
-    @apply shadow-outline;
+    @apply ring;
   }
 
   /* Page Layout */
 
   .container-content {
+    @apply container;
     @apply mx-auto;
     @apply flex;
     @apply flex-wrap;
     @apply flex-row;
+    @apply flex-auto;
     @apply items-start;
-    @apply pl-8;
+    @apply pl-14;
     @apply pr-8;
   }
 
@@ -73,7 +73,7 @@
     @apply rounded-lg;
     @apply shadow-lg;
     @apply h-84;
-    @apply w-72;
+    @apply w-84;
     @apply m-2;
     @apply overflow-auto;
   }

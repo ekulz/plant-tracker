@@ -1,5 +1,5 @@
 <template>
-  <div class="container container-content">
+  <div class="container-content">
     <plant-list-item v-for="plant in plants" v-bind:plant="plant" v-bind:key="plant.id"></plant-list-item>
     <add-plant v-on:update:plants="savePlant($event)"></add-plant>
   </div>

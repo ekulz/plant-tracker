@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   purge: [],
   theme: {
@@ -13,6 +15,10 @@ module.exports = {
         "96": "24rem",
       },
     },
+    colors: {
+      gray: colors.coolGray,
+      blueGray: colors.blueGray,
+    }
   },
   variants: {},
   plugins: [],
