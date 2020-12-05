@@ -9,8 +9,14 @@
 ## Setup
 
 ```
-# Create the required DB role
+# Login as postgres user
+
+# Linux
 sudo -u postgres psql
+# MacOS
+psql postgres
+
+# Create the required DB role
 create role planttracker with createdb login password 'password';
 
 # Create the databases
