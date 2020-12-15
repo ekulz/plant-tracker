@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import External from '../views/External.vue';
+import { authGuard } from '../auth/authGuard';
 
 Vue.use(VueRouter)
 
@@ -14,7 +15,8 @@ const routes = [
   {
     path: '/external',
     name: 'External',
-    component: External
+    component: External,
+    beforeEnter: authGuard
   }
 ]
 
