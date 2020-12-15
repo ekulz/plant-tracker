@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import { authGuard } from '../auth/authGuard';
+
 import Home from '../views/Home.vue'
 import External from '../views/External.vue';
-import { authGuard } from '../auth/authGuard';
+import NotFound from '../views/NotFound.vue'
 
 Vue.use(VueRouter)
 
@@ -17,6 +19,10 @@ const routes = [
     name: 'External',
     component: External,
     beforeEnter: authGuard
+  }, {
+    path :'*',
+    name: 'NotFound',
+    component:NotFound
   }
 ]
 
