@@ -1,4 +1,5 @@
 {
   "domain": "plant-tracker.us.auth0.com",
-  "clientId": "qzSrOjQv3kvs7SiS3bMczHd5k7igWIlc"
+  "clientId": "qzSrOjQv3kvs7SiS3bMczHd5k7igWIlc",
+  "audience": "http://localhost:3000/"
 }

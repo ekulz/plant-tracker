@@ -11,6 +11,7 @@
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.13.3",
     "autoprefixer": "^9.8.6",
+    "axios": "^0.21.0",
     "core-js": "^3.6.5",
     "postcss": "^8.1.13",
     "tailwindcss": "^2.0.1",
