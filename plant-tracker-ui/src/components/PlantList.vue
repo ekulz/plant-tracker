@@ -8,25 +8,32 @@
 <script>
 import PlantListItem from "./PlantListItem.vue";
 import AddPlant from "./AddPlant.vue";
+import axios from "axios";
 
 export default {
   name: "plant-list",
-  data: function () {
+  data() {
     return {
-      plants: [
-        {
-          id: 1,
-          name: "Lily",
-          species: "Peace Lily",
-          logs: ["Fertilized 11/08", "Watered 12/08"],
-          logEntry: "",
-        },
-      ],
+      plants: null,
     };
+  },
+  async mounted() {
+    try {
+      const token = await this.$auth.getTokenSilently()
+      const resp = await axios.get("/api/plants", {
+        headers: {
+          Authorization: `Bearer ${token}`    // send the access token through the 'Authorization' header
+        }
+      });
+      this.plants = resp.data;
+    } catch(err) {
+      this.plants = null;
+    }
   },
   methods: {
     savePlant(newPlant) {
       let lastId = Math.max(...this.plants.map((plant) => plant.id));
+      lastId = (lastId < 0) ? 0 : lastId;
       let plant = {
         id: ++lastId,
         name: newPlant.name,
