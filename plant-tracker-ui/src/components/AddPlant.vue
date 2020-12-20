@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="card" v-if="newPlant.editing">
+    <div class="card" v-if="editing">
       <form v-on:submit.prevent="savePlant()">
         <add-plant-input
           input-label="Name"
@@ -8,14 +8,14 @@
           input-id="name-input"
           input-ref="nameInput"
           ref="nameInputWrapper"
-          v-model="newPlant.name"
+          v-model="plant.name"
         ></add-plant-input>
         <add-plant-input
           input-label="Species"
           input-placeholder="e.g. Peace Lily"
           input-id="species-input"
           input-ref="speciesInput"
-          v-model="newPlant.species"
+          v-model="plant.species"
         ></add-plant-input>
         <div class="m-4">
           <button class="btn btn-primary" type="submit">Save</button>
@@ -26,7 +26,7 @@
     <div>
       <button
         class="btn btn-primary m-2"
-        v-if="!newPlant.editing"
+        v-if="!editing"
         v-on:click="toggleEdit()"
       >Add plant</button>
     </div>
@@ -35,31 +35,46 @@
 
 <script>
 import AddPlantInput from "./AddPlantInput.vue";
+import axios from "axios";
 
 export default {
   name: "add-plant",
-  data: function () {
+  data() {
     return {
-      newPlant: {
-        editing: false,
-        name: "",
-        species: "",
+      editing: false,
+      error: null,
+      plant: {
+        name: null,
+        species: null,
       },
     };
   },
   methods: {
     toggleEdit() {
-      this.newPlant.editing = !this.newPlant.editing;
-      this.newPlant.name = "";
-      this.newPlant.species = "";
-      if (this.newPlant.editing)
-        this.$nextTick(() =>
-          this.$refs.nameInputWrapper.$refs.nameInput.focus()
-        );
+      this.editing = !this.editing;
+      this.error == null;
+      this.plant.name = null;
+      this.plant.species = null;
+      if (this.editing) {
+        this.$nextTick(() => this.$refs.nameInputWrapper.$refs.nameInput.focus());
+      }
     },
-    savePlant() {
-      this.$emit("update:plants", this.newPlant);
-      this.toggleEdit();
+    async savePlant() {
+      try {
+        const token = await this.$auth.getTokenSilently()
+        await axios.post("/api/plants", this.plant, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+      } catch(err) {
+        this.error = err;
+      }
+
+      if (!this.error) {
+        this.$emit("update:plants", this.plant);
+        this.toggleEdit();
+      }
     },
   },
   components: {
