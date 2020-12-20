@@ -12,7 +12,8 @@ module Secured
   private
 
   def authenticate_request!
-    auth_token
+    payload, header = auth_token
+    @current_user = payload["sub"]
   rescue JWT::VerificationError, JWT::DecodeError
     render json: { errors: ["Not Authenticated"] }, status: :unauthorized
   end

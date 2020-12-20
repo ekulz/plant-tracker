@@ -10,7 +10,7 @@ class JsonWebToken
       verify_iss: true,
       aud: "http://localhost:3000/",
       verify_aud: true,
-    ) do |header|
+    ) do |header, payload|
       jwks_hash[header["kid"]]
     end
   end
