@@ -42,7 +42,7 @@ export default {
   data() {
     return {
       editing: false,
-      error: null,
+      error: false,
       plant: {
         name: null,
         species: null,
@@ -52,7 +52,7 @@ export default {
   methods: {
     toggleEdit() {
       this.editing = !this.editing;
-      this.error == null;
+      this.error = false;
       this.plant.name = null;
       this.plant.species = null;
       if (this.editing) {
@@ -67,12 +67,12 @@ export default {
             Authorization: `Bearer ${token}`
           }
         });
-      } catch(err) {
-        this.error = err;
+      } catch {
+        this.error = true;
       }
 
       if (!this.error) {
-        this.$emit("update:plants", this.plant);
+        this.$emit("update:plants");
         this.toggleEdit();
       }
     },

@@ -1,7 +1,9 @@
 <template>
   <div class="container-content">
+    <p class="text" v-if="!plants && !error">Loading...</p>
+    <p class="text" v-if="error">We were unable to fetch your plants. Please try again later.</p>
     <plant-list-item v-for="plant in plants" v-bind:plant="plant" v-bind:key="plant.id"></plant-list-item>
-    <add-plant v-on:update:plants="fetchPlants()"></add-plant>
+    <add-plant v-if="plants" v-on:update:plants="fetchPlants()"></add-plant>
   </div>
 </template>
 
@@ -15,6 +17,7 @@ export default {
   data() {
     return {
       plants: null,
+      error: false,
     };
   },
   async mounted() {
@@ -30,8 +33,9 @@ export default {
           }
         });
         this.plants = resp.data;
-      } catch(err) {
+      } catch {
         this.plants = null;
+        this.error = true;
       }
     }
   },
@@ -41,3 +45,13 @@ export default {
   },
 };
 </script>
+
+<style>
+.text {
+  @apply items-center;
+  @apply text-lg;
+  @apply text-gray-400;
+  @apply italic;
+  @apply mt-4;
+}
+</style>
