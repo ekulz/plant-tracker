@@ -21,6 +21,10 @@ export default {
   },
   methods: {
     saveLog(log) {
+      if (!this.plant.logs) {
+        this.plant.logs = [];
+      }
+
       this.plant.logs.push(log);
     },
   },
