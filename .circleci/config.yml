@@ -9,10 +9,9 @@ jobs:
     executor: ruby/default
     steps:
       - checkout
-      - run: cd plant-tracker-api
       - run:
           name: Which bundler?
           command: bundle -v
       - run:
           name: Bundler install
-          command: bundle install
+          command: bundle install --path plant-tracker-api
