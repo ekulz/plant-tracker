@@ -17,4 +17,4 @@ jobs:
           command: pwd
       - run:
           name: Bundler install
-          command: bundle install --path project/plant-tracker-api
+          command: bundle install --path plant-tracker-api
