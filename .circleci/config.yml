@@ -13,5 +13,8 @@ jobs:
           name: Which bundler?
           command: bundle -v
       - run:
+          name: cwd
+          command: pwd
+      - run:
           name: Bundler install
           command: bundle install --path project/plant-tracker-api
