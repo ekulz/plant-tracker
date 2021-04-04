@@ -63,9 +63,7 @@
     @apply flex-wrap;
     @apply flex-row;
     @apply flex-auto;
-    @apply items-start;
-    @apply pl-14;
-    @apply pr-8;
+    @apply justify-center;
   }
 
   .card {
