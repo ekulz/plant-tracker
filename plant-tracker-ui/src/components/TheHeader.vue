@@ -1,12 +1,12 @@
 <template>
-  <div class="header relative">
-    <h1 class="title">Plant Tracker</h1>
+  <div class="header">
+    <div class="flex flex-row">
+      <img class="mr-4 self-center" :src="`${publicPath}logo.png`" alt="logo" width="40px">
+      <h1 class="title">Plant Tracker</h1>
+    </div>
     <div v-if="!$auth.loading">
-      <button class="btn btn-primary absolute right-6 top-6" v-if="!$auth.isAuthenticated" @click="login">Sign in</button>
-      <div class="absolute right-6 top-6 flex flex-row space-x-4 items-center" v-if="$auth.isAuthenticated">
-        <p class="text-gray-400 italic">Welcome, {{ $auth.user.name }}</p>
-        <button class="btn btn-primary" @click="logout">Sign out</button>
-      </div>
+      <button class="btn btn-primary" v-if="!$auth.isAuthenticated" @click="login">Sign in</button>
+      <button class="btn btn-primary" v-if="$auth.isAuthenticated" @click="logout">Sign out</button>
     </div>
   </div>
 </template>
@@ -14,6 +14,11 @@
 <script>
 export default {
   name: "the-header",
+  data () {
+    return {
+      publicPath: process.env.BASE_URL
+    }
+  },
   methods: {
     login() {
       this.$auth.loginWithRedirect();
@@ -36,11 +41,14 @@ export default {
   @apply border-gray-800;
   @apply shadow-2xl;
   @apply border-b-2;
+  @apply flex;
+  @apply flex-auto;
+  @apply flex-row;
+  @apply justify-between;
 }
 
 .title {
   @apply text-4xl;
-  @apply text-gray-200;
-  @apply text-center; 
+  @apply text-gray-300;
 }
 </style>

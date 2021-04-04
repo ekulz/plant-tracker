@@ -1,9 +1,12 @@
 <template>
-  <div class="container-content">
-    <p class="text" v-if="!plants && !error">Loading...</p>
-    <p class="text" v-if="error">We were unable to fetch your plants. Please try again later.</p>
-    <plant-list-item v-for="plant in plants" v-bind:plant="plant" v-bind:key="plant.id"></plant-list-item>
-    <add-plant v-if="plants" v-on:update:plants="fetchPlants()"></add-plant>
+  <div>
+    <p class="text-gray-400 italic container-content pb-8" v-if="$auth.isAuthenticated">Welcome, {{ $auth.user.name }}</p>
+    <div class="container-content">
+      <p class="text" v-if="!plants && !error">Loading...</p>
+      <p class="text" v-if="error">We were unable to fetch your plants. Please try again later.</p>
+      <plant-list-item v-for="plant in plants" v-bind:plant="plant" v-bind:key="plant.id"></plant-list-item>
+      <add-plant v-if="plants" v-on:update:plants="fetchPlants()"></add-plant>
+    </div>
   </div>
 </template>
 
