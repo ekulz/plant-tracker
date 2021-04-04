@@ -6,13 +6,13 @@
       <ul class="list-disc list-inside">
         <li v-for="(log, index) in plant.logs" v-bind:key="index + log">{{ log }}</li>
       </ul>
-      <plant-list-item-log-input v-on:update:log="saveLog($event)"></plant-list-item-log-input>
+      <!-- <plant-list-item-log-input v-on:update:log="saveLog($event)"></plant-list-item-log-input> -->
     </div>
   </div>
 </template>
 
 <script>
-import PlantListItemLogInput from "./PlantListItemLogInput.vue";
+// import PlantListItemLogInput from "./PlantListItemLogInput.vue";
 
 export default {
   name: "plant-list-item",
@@ -29,7 +29,7 @@ export default {
     },
   },
   components: {
-    PlantListItemLogInput,
+    // PlantListItemLogInput,
   },
 };
 </script>

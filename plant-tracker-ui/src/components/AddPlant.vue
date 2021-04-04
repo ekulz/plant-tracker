@@ -67,13 +67,11 @@ export default {
             Authorization: `Bearer ${token}`
           }
         });
-      } catch {
-        this.error = true;
-      }
-
-      if (!this.error) {
+        
         this.$emit("update:plants");
         this.toggleEdit();
+      } catch {
+        this.error = true;
       }
     },
   },
