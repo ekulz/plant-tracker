@@ -16,9 +16,4 @@ https://lukehickin.com/plant-tracker
 
 ## Todo
 
-- Finish Vue auth
-- Build out backend auth
-- Persist resources
-- Host backend
-- Setup CI/CD
-- More UI updates
+See the [project boards](https://github.com/ekulz/plant-tracker/projects) for the latest updates.
