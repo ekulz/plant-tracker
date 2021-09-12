@@ -1,34 +1,45 @@
 <template>
   <div class="header">
     <div class="flex flex-row">
-      <img class="mr-4 self-center" :src="`${publicPath}logo.png`" alt="logo" width="40px">
+      <img
+        class="mr-4 self-center"
+        :src="`${publicPath}logo.png`"
+        alt="logo"
+        width="40px"
+      />
       <h1 class="title">Plant Tracker</h1>
     </div>
     <div v-if="!$auth.loading">
-      <button class="btn btn-primary" v-if="!$auth.isAuthenticated" @click="login">Sign in</button>
-      <button class="btn btn-primary" v-if="$auth.isAuthenticated" @click="logout">Sign out</button>
+      <button
+        class="btn btn-primary"
+        v-if="!$auth.isAuthenticated"
+        @click="login"
+      >
+        Sign in
+      </button>
+      <drop-down-menu v-if="$auth.isAuthenticated"></drop-down-menu>
     </div>
   </div>
 </template>
 
 <script>
+import DropDownMenu from "./DropDownMenu.vue";
+
 export default {
   name: "the-header",
-  data () {
+  data() {
     return {
-      publicPath: process.env.BASE_URL
-    }
+      publicPath: process.env.BASE_URL,
+    };
   },
   methods: {
     login() {
       this.$auth.loginWithRedirect();
     },
-    logout() {
-      this.$auth.logout({
-        returnTo: window.location.origin
-      });
-    }
-  }
+  },
+  components: {
+    DropDownMenu,
+  },
 };
 </script>
 

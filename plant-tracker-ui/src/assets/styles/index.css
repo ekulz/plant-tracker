@@ -27,6 +27,12 @@
     @apply shadow-lg;
   }
 
+  .btn-primary-invisible {
+    @apply text-gray-400;
+    @apply py-2;
+    @apply px-4;
+  }
+
   .btn-secondary {
     @apply bg-blueGray-600;
     @apply text-gray-300;
@@ -66,13 +72,17 @@
     @apply justify-center;
   }
 
-  .card {
+  .card-content {
     @apply bg-gray-800;
     @apply rounded-lg;
     @apply shadow-lg;
-    @apply h-84;
-    @apply w-84;
     @apply m-2;
     @apply overflow-auto;
+  }
+
+  .card {
+    @apply card-content;
+    @apply h-84;
+    @apply w-84;
   }
 }
